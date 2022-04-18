@@ -31,3 +31,5 @@
 /sample-rename.py
 /speakerlist.csv
 /speakerlist-old.csv
+/bin/
+/venv/
