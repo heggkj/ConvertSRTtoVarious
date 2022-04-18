@@ -1,0 +1,33 @@
+/input-srt/FF010_from mp4_otter_ai.srt
+/input-srt/FF019_otter_ai.srt
+/input-srt/FF031_otter_ai (1).srt
+/input-srt/FF136_otter_ai.srt
+/input-srt/FF137_otter_ai.srt
+/input-srt/FF139_otter_ai.srt
+/input-srt/FF140_otter_ai.srt
+/input-srt/FF142_Amplified_otter_ai.srt
+/input-srt/FF145_Amplified_otter_ai.srt
+/input-srt/FF146_otter_ai.srt
+/input-srt/FF148_otter_ai.srt
+/input-srt/FF149_otter_ai.srt
+/input-srt/FF152_otter_ai.srt
+/input-srt/FF153_otter_ai.srt
+/output-tsv/FF010_from mp4_otter_ai.tsv
+/output-tsv/FF019_otter_ai.tsv
+/output-tsv/FF031_otter_ai (1).tsv
+/output-tsv/FF136_otter_ai.tsv
+/output-tsv/FF137_otter_ai.tsv
+/output-tsv/FF139_otter_ai.tsv
+/output-tsv/FF140_otter_ai.tsv
+/output-tsv/FF142_Amplified_otter_ai.tsv
+/output-tsv/FF145_Amplified_otter_ai.tsv
+/output-tsv/FF146_otter_ai.tsv
+/output-tsv/FF148_otter_ai.tsv
+/output-tsv/FF149_otter_ai.tsv
+/output-tsv/FF152_otter_ai.tsv
+/output-tsv/FF153_otter_ai.tsv
+/main.py
+/output.tsv
+/sample-rename.py
+/speakerlist.csv
+/speakerlist-old.csv
