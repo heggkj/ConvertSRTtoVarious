@@ -12,3 +12,5 @@ The code is easy to use:
 5. Run convert.py. Results will be put in the output-srt folder.
 
 Another way to convert SRT files to AudiAnnotate-ready TSV files is to put speakers in the Layer column and the transcripts in the Annotate column. In this way, the transcript can be sorted by speakers. This method generates fewer rows in the TSV file.
+
+NOTE: This code has only be tested with SRT files generated through Otter.ai. It should work with other files but caveat emptor.
