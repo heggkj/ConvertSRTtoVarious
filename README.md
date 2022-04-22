@@ -23,7 +23,7 @@ To prepare your SRT file, do the following:
 1. After logging into Otter, open the conversation you want to convert
 2. Select Export as SRT
 3. Set the Export parameters as illustrated in the screen capture below
-4. Place your SRT, which has been chunked into the greatest number of blocks*, each holding one or two words, into the input-srt folder
+4. Place your SRT, which has been chunked into the greatest number of blocks[1], each holding one or two words, into the input-srt folder
 5. Run the conversion utility. The resulting .TXT file will appear in the output-txt folder.
 
 ![Export-as-SRT-from-Otter ai](https://user-images.githubusercontent.com/1427371/164727949-5ea43d58-c75c-4782-9a54-2e7760c2caa2.png)
