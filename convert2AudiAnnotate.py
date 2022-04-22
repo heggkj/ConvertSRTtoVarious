@@ -78,7 +78,8 @@ def convert_srt_to_tsv(name, srt_path, tsv_path, speakers):
         tsv_writer.writerow([start_time, end_time, transcription, "Transcription"])
         if len(env_ary) > 0:
             for env_item in env_ary:
-                anno = "<font color='%s'>[%s]</font>" % (color, env_item[2])
+                # anno = "<font color='%s'>[%s]</font>" % (color, env_item[2])
+                anno = "[" + env_item[2] + "]"
                 tsv_writer.writerow([env_item[0], env_item[1], anno, "Environment"])
     f.close()
 
