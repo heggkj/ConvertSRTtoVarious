@@ -23,7 +23,15 @@ To prepare your SRT file, do the following:
 1. After logging into Otter, open the conversation you want to convert
 2. Select Export as SRT
 3. Set the Export parameters as illustrated in the screen capture below
-4. Place your SRT, which has been chunked into the greatest number of blocks, each holding one or two words, into the input-srt folder
+4. Place your SRT, which has been chunked into the greatest number of blocks*, each holding one or two words, into the input-srt folder
 5. Run the conversion utility. The resulting .TXT file will appear in the output-txt folder.
 
 ![Export-as-SRT-from-Otter ai](https://user-images.githubusercontent.com/1427371/164727949-5ea43d58-c75c-4782-9a54-2e7760c2caa2.png)
+
+The sample provided looks like this when loaded into the OHMS viewer:
+
+![Sample_ SRT to OHMS Converter screen capture](https://user-images.githubusercontent.com/1427371/164777618-823cca9d-e0e9-4e92-a1bc-af8a9391f81a.png)
+
+
+
+[1] By chunking the SRT file into the smallest spans of time, my script is able to closely match SRT timestamps with OHMS intervals, which can be set to 30, 60, 120, 180, 240, or 300 seconds.
