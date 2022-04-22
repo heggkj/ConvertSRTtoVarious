@@ -1,11 +1,20 @@
 import pysrt
 import csv
 import os
+import re
 
 
 def timestamp_to_seconds(timestamp: object) -> object:
     total_seconds = timestamp.seconds + 60 * (timestamp.minutes + 60 * timestamp.hours)
     return total_seconds + timestamp.milliseconds / 1000
+
+
+def HHMMSS_to_seconds(timecode: str) -> int:
+    ary = timecode.split(":")
+    hours = int(ary[0])
+    minutes = int(ary[1])
+    seconds = int(ary[2])
+    return (hours * 60 * 60) + (minutes * 60) + seconds
 
 
 def csv_to_dict(fpath):
@@ -16,6 +25,14 @@ def csv_to_dict(fpath):
     return dict_from_csv
 
 
+def get_env_row(s):
+    a = s.split("|")
+    start_time = HHMMSS_to_seconds(a[0].strip())
+    end_time = HHMMSS_to_seconds(a[1].strip())
+    annotation = a[2].strip()
+    return [start_time, end_time, annotation]
+
+
 def convert_srt_to_tsv(name, srt_path, tsv_path, speakers):
     srt = pysrt.open(os.path.join(srt_path, name))
     fname = name.split(".", 1)[0] + ".tsv"
@@ -24,9 +41,21 @@ def convert_srt_to_tsv(name, srt_path, tsv_path, speakers):
     speaker = "Unknown"
     transcription = ""
     lastcolor = color = "black"
+    env_ary = []
     for item in srt:
-        start_time = timestamp_to_seconds(item.start)
-        end_time = timestamp_to_seconds(item.end)
+        start_time = round(timestamp_to_seconds(item.start), 3)
+        end_time = round(timestamp_to_seconds(item.end), 3)
+        env_ary = []
+        running = True
+        while running:
+            try:
+                found = re.search('\[\[(.+?)\]\]', item.text).group(1)
+                item.text = item.text.replace("[[" + found + "]]", " ")
+                env_ary.append(get_env_row(found))
+                print(env_ary)
+            except AttributeError:
+                running = False
+                pass
         text_parsed = item.text.split(":", 1)
         speaker = "Unknown Speaker"
         transcription = ""
@@ -47,6 +76,10 @@ def convert_srt_to_tsv(name, srt_path, tsv_path, speakers):
         transcription = transcription.replace("\n", " ")
         transcription = "<font color='%s'>%s</font>" % (color, transcription)
         tsv_writer.writerow([start_time, end_time, transcription, "Transcription"])
+        if len(env_ary) > 0:
+            for env_item in env_ary:
+                anno = "<font color='%s'>[%s]</font>" % (color, env_item[2])
+                tsv_writer.writerow([env_item[0], env_item[1], anno, "Environment"])
     f.close()
 
 
@@ -61,6 +94,7 @@ def main():
         count += 1
         print(file + ", ", count)
         convert_srt_to_tsv(file, srt_path, tsv_path, speaker_dict)
+        break
 
 
 if __name__ == '__main__':

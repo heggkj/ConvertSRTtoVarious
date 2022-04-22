@@ -1,17 +1,17 @@
-/input-srt/FF010_from mp4_otter_ai.srt
-/input-srt/FF019_otter_ai.srt
-/input-srt/FF031_otter_ai (1).srt
-/input-srt/FF136_otter_ai.srt
-/input-srt/FF137_otter_ai.srt
-/input-srt/FF139_otter_ai.srt
-/input-srt/FF140_otter_ai.srt
-/input-srt/FF142_Amplified_otter_ai.srt
-/input-srt/FF145_Amplified_otter_ai.srt
-/input-srt/FF146_otter_ai.srt
-/input-srt/FF148_otter_ai.srt
-/input-srt/FF149_otter_ai.srt
-/input-srt/FF152_otter_ai.srt
-/input-srt/FF153_otter_ai.srt
+/bin/FF010_from mp4_otter_ai.srt
+/bin/FF019_otter_ai.srt
+/bin/FF031_otter_ai (1).srt
+/bin/FF136_otter_ai.srt
+/bin/FF137_otter_ai.srt
+/bin/FF139_otter_ai.srt
+/bin/FF140_otter_ai.srt
+/bin/FF142_Amplified_otter_ai.srt
+/bin/FF145_Amplified_otter_ai.srt
+/bin/FF146_otter_ai.srt
+/bin/FF148_otter_ai.srt
+/bin/FF149_otter_ai.srt
+/bin/FF152_otter_ai.srt
+/bin/FF153_otter_ai.srt
 /output-tsv/FF010_from mp4_otter_ai.tsv
 /output-tsv/FF019_otter_ai.tsv
 /output-tsv/FF031_otter_ai (1).tsv
@@ -33,3 +33,5 @@
 /speakerlist-old.csv
 /bin/
 /venv/
+/input-srt/bin/
+/input-srt/MAF Interview - Tape 1, Side A_otter_ai.srt
