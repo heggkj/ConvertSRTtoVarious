@@ -1,6 +1,6 @@
 # ConvertSRTtoVarious
 
-### convert2SRT.py
+### convert2AudiAnnotate.py
 This Python code converts SRT files to the TSV file format used by AudiAnnotate to create a manifest for the AudiAnnotate IIIF-compatible viewer. In this case, the annotations are blocks of transcriptions. The layers hold two values: Speaker and Transcription.
 
 There are many ways to use AudiAnnotate to view A/V transcriptions. The converted sample in this repository looks like [this](https://kevinhegg.github.io/sample-conversion/simple-srt-to-tsv-conversion-example).
