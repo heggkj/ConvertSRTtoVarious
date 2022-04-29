@@ -38,7 +38,7 @@ def convert_srt_to_tsv(name, srt_path, tsv_path, speakers):
     fname = name.split(".", 1)[0] + ".tsv"
     f = open(os.path.join(tsv_path, fname), "w", encoding="utf-8", newline="")
     tsv_writer = csv.writer(f, delimiter="\t")
-    speaker = "Unknown"
+    speaker = ""
     transcription = ""
     lastcolor = color = "black"
     env_ary = []
@@ -52,7 +52,6 @@ def convert_srt_to_tsv(name, srt_path, tsv_path, speakers):
                 found = re.search('\[\[(.+?)\]\]', item.text).group(1)
                 item.text = item.text.replace("[[" + found + "]]", " ")
                 env_ary.append(get_env_row(found))
-                print(env_ary)
             except AttributeError:
                 running = False
                 pass
@@ -73,9 +72,13 @@ def convert_srt_to_tsv(name, srt_path, tsv_path, speakers):
             color = lastcolor
         else:
             transcription = item.text.strip()
-        transcription = transcription.replace("\n", " ")
-        transcription = "<font color='%s'>%s</font>" % (color, transcription)
-        tsv_writer.writerow([start_time, end_time, transcription, "Transcription"])
+        transcription = transcription.replace("\n", " ").strip()
+        transcription = transcription.replace('"', '&quot;')
+        if len(transcription) > 0:
+            transcription = "<font color='%s'>%s</font>" % (color, transcription)
+            if len(speaker) > 0:
+                start_time = start_time + .001
+            tsv_writer.writerow([start_time, end_time, transcription, "Transcription"])
         if len(env_ary) > 0:
             for env_item in env_ary:
                 # anno = "<font color='%s'>[%s]</font>" % (color, env_item[2])
