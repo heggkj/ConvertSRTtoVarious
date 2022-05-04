@@ -74,7 +74,11 @@ def convert_srt_to_tsv(name, srt_path, tsv_path, speakers):
             transcription = item.text.strip()
         transcription = transcription.replace("\n", " ").strip()
         transcription = transcription.replace('"', '&quot;')
+        transcription = transcription.replace('“', '&quot;')
+        transcription = transcription.replace('“', '&quot;')
         transcription = transcription.replace("'", "&#39;")
+        transcription = transcription.replace("‘", "&#39;")
+        transcription = transcription.replace("’", "&#39;")
         if len(transcription) > 0:
             transcription = "<font color='%s'>%s</font>" % (color, transcription)
             if len(speaker) > 0:
